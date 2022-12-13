@@ -1,0 +1,24 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+body{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.input{
+    text-align: center;
+    margin: 2rem;
+    width: 100%;
+}
+
+.input input{
+    width: 6rem;
+    text-align: center;
+}
