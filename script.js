@@ -41,14 +41,12 @@ function minMaxInput(inputNumber){
 
 function addEventWorkers(){
     const workers = document.querySelectorAll(".worker");
-    workers.forEach(worker => worker.addEventListener('input', element => {
-        totalHours += element.target.valueAsNumber
-        console.log(totalHours)
-    }));
+    workers.forEach(worker => worker.addEventListener('input', getHours));
     
 }
 
-function getHours(){
-    let workers = document.querySelectorAll(".worker");
-    workers.forEach(worker => console.log(worker.target.valueAsNumber));
+function getHours(element){
+    const workers = document.querySelectorAll(".worker");
+    totalHours = 0;
+    workers.forEach(worker => totalHours += worker.valueAsNumber);
 }
