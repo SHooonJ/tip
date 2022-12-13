@@ -1,6 +1,7 @@
 const totalWorkers = document.querySelector("#TotalWorkers");
 const totalTip = document.querySelector("#TotalTip");
 const workerSection = document.querySelector(".workerSection");
+const total = document.querySelector(".total");
 
 let totalHours = 0;
 
@@ -9,14 +10,21 @@ totalTip.addEventListener('input', calculate);
 
 
 
+
 function createWorkers(gotNumberWorkers){
     deleteWorkers();
     let numberWorkers = minMaxInput(gotNumberWorkers);
     for(let i = 0; i < numberWorkers; i++){
-        const newDiv = document.createElement("input");
-        newDiv.type = "number"
-        newDiv.classList.add("worker");
-        workerSection.appendChild(newDiv);
+        const newContainer = document.createElement("div");
+        newContainer.classList.add("tipContainer");
+        workerSection.appendChild(newContainer);
+            const newInput = document.createElement("input");
+            newInput.type = "number"
+            newInput.classList.add("worker");
+            newContainer.appendChild(newInput);
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("workerTip");
+            newContainer.appendChild(newDiv);
     }
     addEventWorkers();
 }
@@ -41,12 +49,31 @@ function minMaxInput(inputNumber){
 
 function addEventWorkers(){
     const workers = document.querySelectorAll(".worker");
-    workers.forEach(worker => worker.addEventListener('input', getHours));
+    workers.forEach(worker => worker.addEventListener('input', getHoursAndTip));
     
 }
 
-function getHours(element){
+function getHoursAndTip(element){
     const workers = document.querySelectorAll(".worker");
     totalHours = 0;
     workers.forEach(worker => totalHours += worker.valueAsNumber);
+    calculate();
+}
+
+function calculate(){
+    let tipAmount = totalTip.valueAsNumber;
+    let tipPerHour = tipAmount/totalHours;
+    console.log(tipAmount/totalHours);
+    const workers = document.querySelectorAll(".worker");
+    const workerTip = document.querySelectorAll(".workerTip");
+
+    workerTip.forEach(workerTip =>{
+        workers.forEach(worker =>{
+            let tip = worker.valueAsNumber * tipPerHour;
+            if(!isNaN(tip)){
+                workerTip.textContent = tip;
+            }
+        });
+    });
+
 }

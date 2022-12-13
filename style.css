@@ -18,7 +18,17 @@ body{
     width: 100%;
 }
 
-.input input{
+input{
     width: 6rem;
+    text-align: center;
+}
+
+.workerSection input{
+    display: inline-block;
+    margin: 1rem;
+}
+
+.workerTip{
+    display: inline-block;
     text-align: center;
 }
