@@ -8,6 +8,9 @@ let totalHours = 0;
 totalWorkers.addEventListener('input', createWorkers);
 totalTip.addEventListener('input', calculate);
 
+totalWorkers.addEventListener('touchstart', createWorkers);
+totalTip.addEventListener('touchstart', calculate);
+
 
 
 
@@ -18,7 +21,7 @@ function createWorkers(gotNumberWorkers){
         const newContainer = document.createElement("div");
         newContainer.classList.add("tipContainer");
         workerSection.appendChild(newContainer);
-        
+
             const newInput = document.createElement("input");
             newInput.type = "number"
             newInput.placeholder = "Worker Hours"
@@ -70,13 +73,11 @@ function calculate(){
     const workers = document.querySelectorAll(".worker");
     const workerTip = document.querySelectorAll(".workerTip");
 
-    workerTip.forEach(workerTip =>{
-        workers.forEach(worker =>{
-            let tip = worker.valueAsNumber * tipPerHour;
-            if(!isNaN(tip)){
-                workerTip.textContent = tip;
-            }
-        });
-    });
+    for(let i = 0; i < workers.length; i++){
+        let tip = workers[i].valueAsNumber * tipPerHour;
+        if(!isNaN(tip)){
+            workerTip[i].textContent = tip;
+        }
+    }
 
 }
