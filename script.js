@@ -18,10 +18,13 @@ function createWorkers(gotNumberWorkers){
         const newContainer = document.createElement("div");
         newContainer.classList.add("tipContainer");
         workerSection.appendChild(newContainer);
+        
             const newInput = document.createElement("input");
             newInput.type = "number"
+            newInput.placeholder = "Worker Hours"
             newInput.classList.add("worker");
             newContainer.appendChild(newInput);
+
             const newDiv = document.createElement("div");
             newDiv.classList.add("workerTip");
             newContainer.appendChild(newDiv);

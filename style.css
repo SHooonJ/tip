@@ -10,15 +10,26 @@ body{
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
+    background-color: rgb(223, 197, 245);
 }
 
+label{
+    display:block;
+    margin: 1rem;
+}
+
+.inputContainer{
+    display: inline-block;
+}
 .input{
     text-align: center;
     margin: 2rem;
     width: 100%;
 }
 
+
 input{
+    height: 3rem;
     width: 6rem;
     text-align: center;
 }
