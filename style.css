@@ -11,6 +11,8 @@ body{
     align-items: flex-start;
     flex-wrap: wrap;
     background-color: rgb(223, 197, 245);
+    margin: 0;
+    padding: 0;
 }
 
 label{
@@ -23,13 +25,13 @@ label{
 }
 .input{
     text-align: center;
-    margin: 2rem;
+    margin: 1rem;
     width: 100%;
 }
 
 
 input{
-    height: 3rem;
+    height: 2rem;
     width: 6rem;
     text-align: center;
 }
